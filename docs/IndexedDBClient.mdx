@@ -1,0 +1,251 @@
+import { Meta } from '@storybook/blocks';
+import { Source } from '@storybook/blocks';
+
+<Meta title="Utilities/Services/IndexedDBClient" />
+
+
+# IndexedDBClient
+
+The IndexedDBClient class is a utility for client-side persistence. It wraps the browser’s native IndexedDB API with a clean, promise-based interface for storing and managing structured data (e.g., chat histories, cached items, or user session data).
+
+It pairs with the helper function setDbConfig, which generates a unique database name and store configuration based on the current SPFx WebPartContext, page ID, environment (staging vs. production), and session identifier. This ensures that each web part instance uses a scoped, collision-free database.
+
+## Key Features
+- **Context-aware configuration:** Builds DB names using web part alias, staging flag, page ID, and session ID.
+- **Promise-based API:** Simplifies asynchronous IndexedDB operations with clear error handling.
+- **CRUD support:** Insert, update, retrieve, list, and delete records by key.
+- **Store initialization:** Creates new stores or clears existing ones when needed.
+- **Maintenance helpers:** Remove all but the first item, delete specific databases by prefix, or drop an entire DB.
+- **Resilient error handling:** Detects missing store names, blocked upgrades, and transaction errors with meaningful exceptions.
+
+## Usage
+
+<Source 
+  code={`import IndexedDBClient, { setDbConfig } from '@mwe-apps/pixel-parts/lib/services';`} 
+  language="ts" 
+  dark 
+  format
+/>
+
+### `setDbConfig(context, pageId)`
+
+To instantiate the IndexedDBClient, the first step is to call the `setDbConfig` function. This return the `dbName` and `storeName`.
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>context</strong></td>
+      <td>Creates a webpart-based identifier in the database name.</td>
+      <td>Required</td>
+      <td>WebPartContext</td>
+    </tr>
+    <tr>
+      <td><strong>pageId</strong></td>
+      <td>Creates a page-level identifier in the database name. This could be a resource, matter, or client Id, or something specific to the page where the database is being instantiated.</td>
+      <td>Optional</td>
+      <td>string or number</td>
+    </tr>
+  </tbody>
+</table>
+
+<Source 
+  code={`
+    const { dbName, storeName } = setDbConfig(context, 116);
+
+    // Output:
+    // dbName => 'MAI_DocSummarizer_116_64a01855-6809-422-8f19-3c43ec1e4148'
+    // storeName => 'Chat_History'
+  `} 
+  language="ts" 
+  dark 
+  format
+/>
+
+#### `dbName` 
+
+The `dbName` contant is used when instantiating a database instance.
+
+#### `storeName` 
+
+The `storeName` constant is needed when calling databse methods.
+
+
+### Instantiate a Database Instance
+
+<Source 
+  code={`const db = new IndexedDBClient(dbName);`} 
+  language="ts" 
+  dark 
+  format
+/>
+
+### `db.getAll(storeName)`
+
+Gets all items in a database store.
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>storeName</strong></td>
+      <td>Name of the database store.</td>
+      <td>Required</td>
+      <td>string</td>
+    </tr>
+  </tbody>
+</table>
+
+<Source 
+  code={`const data = await indexedDBClient.getAll(storeName);`} 
+  language="ts" 
+  dark 
+  format
+/>
+
+Inserts an item into a database store.
+
+### `db.insert(storeName, record)`
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>storeName</strong></td>
+      <td>Name of the database store.</td>
+      <td>Required</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td><strong>record</strong></td>
+      <td>The database record to be inserted.</td>
+      <td>Required</td>
+      <td>object</td>
+    </tr>
+  </tbody>
+</table>
+
+<Source 
+  code={`
+    const record = {
+      name: 'John Doe',
+      email: 'jdoe@example.com'
+    };
+
+    db.insert(storeName, record);
+  `} 
+  language="ts" 
+  dark 
+  format
+/>
+
+### `db.update(storeName, record)`
+
+Updates an existing item in a database store.
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>storeName</strong></td>
+      <td>Name of the database store.</td>
+      <td>Required</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td><strong>record</strong></td>
+      <td>The database record to be updated.</td>
+      <td>Required</td>
+      <td>object</td>
+    </tr>
+  </tbody>
+</table>
+
+<Source 
+  code={`
+    const item = await indexedDBClient.get(storeName, key);
+    const updatedData = {
+      name: 'John Doe',
+      email: 'jdoe@example.com'
+    };
+    await db.updateItem(storeName, { ...item, ...updatedData });
+  `} 
+  language="ts" 
+  dark 
+  format
+/>
+
+### `db.deleteItem(storeName, key)`
+
+Deletes an item from a database store.
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>storeName</strong></td>
+      <td>Name of the database store.</td>
+      <td>Required</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td><strong>record</strong></td>
+      <td>The database item key.</td>
+      <td>Required</td>
+      <td>string</td>
+    </tr>
+  </tbody>
+</table>
+
+<Source 
+  code={`await db.deleteItem(storeName, key);`} 
+  language="ts" 
+  dark 
+  format
+/>
+
+### `db.deleteDatabase`
+
+Deletes an entire database.
+
+<Source 
+  code={`db.deleteDatabase();`} 
+  language="ts" 
+  dark 
+  format
+/>

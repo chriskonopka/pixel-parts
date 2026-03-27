@@ -1,0 +1,119 @@
+@use '../../styles/base' as *;
+
+@font-face {
+  font-family: 'FabricMDL2Icons';
+  src: url('../../fonts/fabric-icons-c146cc0f.woff') format('woff');
+}
+
+.fileUploadButton {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  font-size: 16px;
+  color: $charcoal;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0 !important;
+  position: relative;
+
+  .fileUploadIcon {
+    color: var(--iconColor);
+    font-family: 'FabricMDL2Icons';
+    font-size: var(--iconSize);
+
+    &:hover {
+      color: var(--iconColorHover);
+    }
+
+    &.isDisabled {
+      color: $accessible-components-dark-grey;
+      cursor: default;
+    }
+  }
+
+  .fileUploadButtonTooltip {
+    background-color: $white;
+    white-space: nowrap;
+    border-radius: 4px;
+    padding: 6px;
+    align-items: center;
+    display: flex;
+    gap: 10px;
+    box-shadow: 0 0 8px #0000002a;
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    bottom: 40px;
+
+    button {
+      font-size: 14px;
+      color: $black;
+    }
+  }
+
+  &.hasText {
+    gap: 10px;
+  }
+
+  &.isDefaultButton {
+    background-color: $gray-2;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+
+    &:hover {
+      background-color: $mwe-green;
+    }
+
+    .defaultFileUploadIcon {
+      width: 18px;
+      display: block;
+    }
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+
+    .fileUploadIcon {
+      color: $accessible-components-dark-grey;
+    }
+  }
+
+  &.isButton {
+    padding: 9px 20px;
+    border: 1px solid $gray-2;
+    border-radius: 4px;
+    font-family: $MweFontSegoe;
+    line-height: 20px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+    background-color: $white;
+    color: $black;
+
+    &:hover,
+    &:active,
+    &.isActive {
+      border-color: $mwe-green;
+      background-color: $button-hover-dark;
+    }
+  }
+
+  &.isLarge {
+    padding: 20px 40px;
+  }
+}
+
+.fileUploadInput {
+  display: none;
+}
+
+.disableControl {
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.5;
+}

@@ -1,0 +1,8 @@
+// 1. Bring variables into this module’s scope…
+@import 'variables';
+@import 'mixins';
+
+* {
+  font-family: $MweFontSegoe;
+  box-sizing: border-box;
+}

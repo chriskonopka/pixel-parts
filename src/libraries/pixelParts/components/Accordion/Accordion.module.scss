@@ -1,0 +1,18 @@
+@use '../../styles/base' as *;
+
+.accordion {
+    & > * + *::before {
+        background-color: $mwe-green;
+        content: '';
+        display: block;
+        height: 80px;
+        margin-left: 60px;
+        width: 3px;
+    }
+}
+
+.navy {
+  & > * + *::before {
+    background-color: $mws-navy;
+  }
+}

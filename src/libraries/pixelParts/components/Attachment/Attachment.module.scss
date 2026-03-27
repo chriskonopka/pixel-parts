@@ -1,0 +1,112 @@
+@use '../../styles/base' as *;
+
+.fileAttachmentOverlay {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    padding-left: 19px;
+    inset: 0;
+    z-index: 2;
+    background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.3) 0%,      
+      rgba(0, 0, 0, 0.3) 10%,     
+      rgba(0, 0, 0, 0.10) 40%,
+      rgba(0, 0, 0, 0.2) 65%,     
+      rgba(0, 0, 0, 0.3) 100%     
+    );
+
+    &.isImage {
+      justify-content: center;
+      padding-left: 0;
+      background: rgba(0,0,0,0.3);
+    }
+}
+
+.fileAttachmentSpinner {
+  width: 22px; 
+  height: 22px; 
+  border: 3px solid $gray-button-hover; 
+  border-top-color: transparent; 
+  border-radius: 50%; 
+  animation: spin 1s linear infinite; 
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.fileAttachment {
+  background-color: $white;
+  display: inline-flex;
+  height: 60px;
+  width: fit-content;
+  position: relative;
+  overflow: hidden;
+}
+
+.imageAttachment {
+  background: no-repeat center 0/cover;
+  background-color: $gray-4;
+  contain: paint;         
+  will-change: opacity;  
+  border: 1px solid $card-border-light;
+  width: 60px;
+  height: 60px;
+  border-radius: 6px;
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  overflow: hidden;
+
+  .removeAttachmentbutton {
+    margin: 12px 12px 0 0;
+  }
+}
+
+.fileAttachmentName {
+    font-size: 14px;
+    font-weight: 600;
+    color: $black;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 260px;
+}
+
+.fileAttachmentType {
+  margin-top: 4px;
+  font-size: 12px;
+  line-height: 1;
+  color: $gray7;
+  letter-spacing: .2px;
+  text-transform: uppercase;
+}
+
+.removeAttachmentbutton {
+  background: $black;
+  border: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-left: 16px;
+  border-radius: 24px;
+  align-self: flex-start;
+  position: relative;
+  left: 8px;
+  bottom: 8px;
+}
+
+.removeAttachmentIcon {
+  color: $white;
+  font-size: 9px !important;
+  font-weight: 600;
+}
+
+.fileName {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

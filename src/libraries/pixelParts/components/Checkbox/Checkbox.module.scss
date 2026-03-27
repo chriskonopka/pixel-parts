@@ -1,0 +1,28 @@
+@use '../../styles/base' as *;
+
+.checkboxContainer {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox {
+  margin-right: 8px;
+  margin-top: 5px;
+  margin-bottom: 2px;
+  height: 16px;
+  width: 16px;
+  border-radius: 4px;
+  background-color: $card-background-dark;
+  border: 1px solid $black !important;
+  accent-color: $mwe-green !important;
+}
+
+.label {
+  color: $white;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.label:hover {
+  color: $white;
+}

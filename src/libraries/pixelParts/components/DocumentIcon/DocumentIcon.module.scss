@@ -1,0 +1,25 @@
+@use '../../styles/base' as *;
+
+.documentIcon {
+  width: var(--iconSize);
+  height: var(--iconSize);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-image: var(--backgroundImage);
+  border: 1px solid var(--borderColor);
+  @include file-attachment-color-classes();
+}
+
+.documentIconSvg {
+  width: calc(var(--iconSize) * 0.55);
+  height: calc(var(--iconSize) * 0.55);
+
+  path, polyline {
+    stroke: $white;
+  }
+}

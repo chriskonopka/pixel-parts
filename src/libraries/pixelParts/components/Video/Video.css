@@ -1,0 +1,53 @@
+.video-react .video-react-big-play-button {
+  background-color: rgb(13, 41, 61); 
+  border-radius: 50%;
+}
+
+.video-react .video-react-big-play-button:before {
+  width: auto;
+  height: auto;
+  top: 50%; 
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  font-size: 45px;
+}
+
+.video-react .video-react-big-play-button.video-react-big-play-button-center {
+  top: 50%; 
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  transition: opacity .1s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  opacity: .70;
+  margin: 0;
+  border: 0;
+  width: 65px;
+  height: 65px;
+}
+
+.video-react:hover .video-react-big-play-button,
+.video-react .video-react-big-play-button:focus {
+  outline: 0;
+  border-color: #fff;
+  background-color: rgba(43, 51, 63, 1);
+  -webkit-transition: all 0s;
+  -moz-transition: all 0s;
+  -o-transition: all 0s;
+  transition: all 0s;
+  opacity: 1;
+}
+
+.video-react .video-react-poster::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transition: all 0.15s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  z-index: 2;
+}
+
+.video-react .video-react-poster:hover::after {
+  opacity: 1;
+}

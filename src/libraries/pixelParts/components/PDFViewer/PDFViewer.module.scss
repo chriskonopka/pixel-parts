@@ -1,0 +1,13 @@
+@use '../../styles/base' as *;
+
+.pdfViewer {
+  display: flex;
+  height: 100vh;
+  @include custom-scrollbar();
+}
+
+.textHighlight {
+  background-color: rgba(252, 186, 3, 0.5);
+  position: absolute;
+  pointer-events: none;
+}

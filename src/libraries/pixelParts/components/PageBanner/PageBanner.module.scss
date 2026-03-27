@@ -1,0 +1,39 @@
+@use '../../styles/base' as *;
+
+.pageBanner {
+    background-color: $white;
+    position: relative;
+    box-shadow: 0 2px 8px #00000012 !important;
+    position: relative;
+
+    &__titleBar {
+        padding: 12px 30px;
+    }
+
+    &__breadcrumbs {
+        font-size: 13px;
+        color: $card-border-dark;
+        padding: 0 30px;
+
+        &>*+*::before {
+            content: '/';
+            color: $card-border-dark;
+            display: inline-block;
+            padding: 0 8px;
+        }
+
+        a {
+            color: $card-border-dark;
+        }
+    }
+
+    &__breadcrumbsContainer {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 5px;
+    }
+
+    &--noShadow {
+        box-shadow: none !important;
+    }
+}

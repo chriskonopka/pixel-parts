@@ -1,0 +1,38 @@
+.actionButton {
+    background: none; 
+    border: none; 
+    cursor: pointer; 
+    min-height: 24px;
+}
+
+.tableContainer {
+    margin-top: 20px;
+}
+
+.modalContent {
+    margin-top: 16px;
+    
+    & > * {
+        min-width: calc(50% - 15px);
+        width: 100%;
+    }
+}
+
+.pdfViewer {
+    min-height: 50vh;
+
+    [class*="pdfViewer"] {
+        height: 100% !important;
+    }
+}
+
+.viewerContainer {
+    height: 100% !important;
+    overflow: auto;
+    position: relative;
+    position: relative;
+
+    @media (min-width: 1025px) {
+        height: calc(100% - 50px) !important;
+    }
+}

@@ -1,0 +1,139 @@
+@use '../../styles/base' as *;
+
+.accordionPanel {
+  background-color: #f3f3f3;
+  border: 1px solid #d3d3d3;
+  border-radius: 6px;
+
+  &:hover {
+    border-color: $mwe-green;
+  }
+
+  &__header {
+    width: 100%;
+  }
+
+  &__body {
+    padding: 0 20px 20px;
+    display: none;
+
+    &.isOpen {
+      display: block;
+    }
+  }
+
+  &__title {
+    margin: 8px 0 4px;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  &__subtitle {
+    margin: 0;
+    font-size: 16px;
+    font-weight: normal;
+  }
+
+  &__label {
+    border: 1px solid $gray-3;
+    background-color: $card-background-light;
+    color: $black;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+  }
+
+  &__toggle {
+    background-color: #d4d4d4;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    width: 32px;
+    transition: all 0.2s linear;
+  }
+
+  &__trigger {
+    border: none;
+    cursor: pointer;
+    background: none;
+    display: flex;
+    font-size: 16px;
+    padding: 15px 20px;
+    width: 100%;
+    text-align: left;
+
+    &.defaultCursor {
+      cursor: default;
+    }
+
+    &.isOpen {
+      .accordionPanel__toggle {
+        transform: rotate(-180deg);
+      }
+    }
+  }
+}
+
+/* =====================================================
+   NAVY VARIANT (Rebrand)
+   ===================================================== */
+
+.navy {
+  background-color: $white;
+  border: 1px solid transparent;
+  color: $mws-navy;
+
+  .accordionPanel__trigger {
+    color: $mws-navy;
+
+    &:hover {
+      border-color: transparent;
+      color: $mws-blue;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $mws-blue;
+      outline-offset: 2px;
+      border-radius: 6px;
+    }
+  }
+
+  .accordionPanel__title,
+  .accordionPanel__subtitle,
+  .accordionPanel__body {
+    color: $mws-navy;
+  }
+
+  .accordionPanel__label {
+    border: 2px solid $mws-navy;
+    background-color: $white;
+    color: $mws-navy;
+  }
+
+  /* Chevron circle (outlined, not filled) */
+  .accordionPanel__toggle {
+    background-color: transparent;
+    border: 2px solid $mws-navy;
+    color: $mws-navy;
+
+    transition: border-color 0.2s ease, color 0.2s ease;
+
+    &:hover {
+      border-color: $mws-blue;
+      color: $mws-blue;
+    }
+
+    /* Ensure Fabric icon inherits color */
+    :global(i) {
+      color: inherit;
+    }
+  }
+}

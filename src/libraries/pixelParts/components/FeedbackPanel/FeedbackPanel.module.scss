@@ -1,0 +1,35 @@
+@use '../../styles/base' as *;
+
+.buttonGroup,
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @media (min-width: 768px) {
+        flex-direction: row;
+    }
+}
+
+.inputGroup {
+    margin-top: 20px;
+
+    @media (min-width: 768px) {
+        margin-top: 0;
+    }
+}
+
+.title {
+    margin: 0 0 16px;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.textbox {
+    font-size: inherit;
+    color: $black;
+    flex: 1;
+    border: 1px solid $gray-2;
+    border-radius: 4px;
+    padding: 9px 20px;
+}

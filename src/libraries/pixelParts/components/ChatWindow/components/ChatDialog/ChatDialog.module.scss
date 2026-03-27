@@ -1,0 +1,193 @@
+@use '../../../../styles/base' as *;
+
+.chatInnerContainer {
+    background-color: $white;
+    border: 1px solid $card-border-light;
+    border-radius: 6px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.chatModal {
+    background: rgba(34, 34, 34, 0.80);
+    z-index: 15;
+    display: flex;
+    justify-content: center;
+    padding: 20px 10px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 88px;
+
+    &.isOpen {
+        display: flex;
+    }
+
+    .chatWindow {
+        max-width: 960px;
+        height: 85%;
+        margin-top: 0;
+        flex: 1;
+    }
+
+    .chatWindowDialogBox {
+        border: 0;
+    }
+
+    .chatWindowDialogBoxContent {
+        padding: 0;
+    }
+
+    .promptField {
+        padding: 10px auto 0;
+
+        @media (min-width: 376px) {
+            padding: 20px;
+        }
+    }
+}
+
+.chatModalTitle {
+    color: $white;
+    font-size: 18px;
+    font-weight: 600;
+    flex: 1;
+}
+
+.chatModalCloseButton {
+    border: 0;
+    background-color: transparent;
+    color: $white;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 600;
+    height: 32px;
+    width: 32px;
+
+    &:hover {
+        background-color: $card-background-dark;
+        border-color: transparent;
+    }
+}
+
+.chatWindow {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border-radius: 0 0 6px 6px;
+    flex: 1;
+    position: relative;
+    min-height: var(--minHeight);
+}
+
+.promptFieldTitle {
+    font-size: 28px;
+    font-weight: 600;
+    text-align: center;
+    margin: 0;
+    display: none;
+    color: $black;
+
+    @media (min-width: 481px) {
+        font-size: 32px;
+        margin: 0 0 20px;
+    }
+}
+
+.promptField {
+    background-color: $white;
+    border-radius: 0 0 6px 6px;
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    &.centered {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        .promptFieldTitle {
+            display: block;
+        }
+    }
+
+    @media (min-width: 376px) {
+        padding: 20px;
+    }
+}
+
+.disclaimer {
+    color: $card-border-dark;
+    text-align: center;
+    font-size: 14px;
+
+    a {
+        color: $card-border-dark !important;
+        font-weight: inherit;
+        text-decoration: underline;
+
+        &:hover {
+            color: $mwe-green !important;
+        }
+    }
+}
+
+.chatWindowDialogBox {
+    background-color: $white;
+    display: flex;
+    flex: 1;
+    position: relative;
+}
+
+.chatWindowDialogBoxContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    position: absolute;
+    inset: 0;
+    overflow: auto;
+    scroll-behavior: smooth;
+    @include custom-scrollbar();
+}
+
+.chatWindowDialogBoxContent {
+    max-width: 960px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+
+    & > :first-child {
+        margin-top: auto;
+    }
+
+    & > * + * {
+        margin-top: 30px;
+    }
+}
+
+.promptInputError {
+    color: $alert;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.scrollButton {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+}

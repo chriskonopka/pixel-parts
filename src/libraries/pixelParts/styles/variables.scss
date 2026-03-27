@@ -1,0 +1,91 @@
+// Fonts
+$MweFontSegoe: "Segoe UI", "Segoe UI Web (West European)", "Segoe UI",
+  -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+
+// Colors
+$mwe-green: #00a68e;
+$mwe-green-light: #00bea3;
+$body-background-dark: #292929;
+$card-border-light: #d3d3d3;
+$button-hover-dark: #00a68e1a;
+$gray-1: #f7f7f7;
+$gray-2: #c7c7c7;
+$gray-3: #a7a7a7;
+$gray-4: #ececec;
+$gray5: #f0f0f0;
+$gray6: #888888;
+$gray7: #6b7280;
+// $floor-gray: #BFBFBF;
+$charcoal: #424244;
+$alert: #da2626;
+$white: #ffffff;
+$global-nav: #181818;
+$card-border-dark: #575757;
+$card-background-dark: #333;
+$blue: #278bcb;
+$violet: #7379b9;
+$page-banner: #2c2c2c;
+$card-background-light: #f9f9f9;
+$black: #000000;
+$chartreuse: #cad23b;
+$accessible-components-dark-grey: #9b9b9b;
+$mwe-green-hover: #2da795;
+$gray-button-hover: #e6e6e6;
+$coral: #f27557;
+$accessible-components-white-smoke: #f5f5f5;
+$focusBlue: #3898ec;
+
+// MWS Brand Colors - Primary
+$mws-navy: #000042;
+$mws-blue: #0018F2;
+$mws-white: #FFFFFF;
+$mws-magenta: #F48DFF;
+$mws-orange: #FC561D;
+$mws-gold: #E5AC2E;
+$mws-teal: #00E2C1;
+$mws-neon: #D2FF3E;
+
+// MWS Brand Colors - Pale Variants
+$mws-pale-navy: #D7D7F2;
+$mws-pale-blue: #E2E8FF;
+$mws-pale-magenta: #FFEDFF;
+$mws-pale-orange: #FFE2DE;
+$mws-pale-gold: #F9E9D2;
+
+//alerts
+$mws-alert-warning: #FEFCEB;
+$mws-alert-urgent: #FFEBEB;
+// MWS Brand Colors - Dark Variants
+$mws-dark-magenta: #CC5ACC;
+$mws-dark-orange: #D64100;
+$mws-dark-gold: #A87C2D;
+
+// MWE Brand Colors
+$mwe-green: $mws-navy;
+$mwe-black: $mws-navy;
+$mwe-white: #FFFFFF;
+$mwe-charcoal: #2D3028;
+$mwe-grey-1: #F8F8F8;
+$mwe-grey-2: #C7C7C7;
+$mwe-grey-3: #A7A7A7;
+$mwe-grey-4: #B3B3B3;
+$mwe-blue: $mws-blue;
+$mwe-chartreuse: #CAD23B;
+$mwe-coral: #F27557;
+$mwe-violet: #7379B9;
+$mwe-sheer-green: $mws-navy;
+
+// MWE MA Colors
+$ma-blue: #019CD8;
+$ma-red: #DB0000;
+$ma-purple: #973C73;
+
+
+$file-attachment-colors: (
+  red: #E74C3C,
+  blue: #2563eb,
+  gold: #FFC300,
+  green: #06B84C,
+  purple: #9B59B6,
+  black: $black
+);

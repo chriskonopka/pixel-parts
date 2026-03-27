@@ -1,0 +1,64 @@
+@use '../../../../styles/base' as *;
+
+.citationSettings {
+    & > * + * {
+        border-top: 1px solid darken($gray-1, 1%);
+    }
+}
+
+.citationSettingsText {
+    padding: 0 20px;
+}
+
+.citationSettingsButton {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 12px 20px;
+    width: 100%;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $button-hover-dark;;
+        box-shadow: inset 0 0 0 1px $mwe-green;
+    }
+}
+
+.citationSettingsCheckbox {
+    display: none;
+}
+
+
+.citationButtonContentContainer {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.citationButtonContent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: 4px;
+}
+
+.citationButtonContentTitle {
+    color: $black;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.citationButtonContentDescription {
+    color: $black;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.citationButtonCheckMark {
+    display: block;
+    width: 32px;
+    margin-top: 5px;
+}

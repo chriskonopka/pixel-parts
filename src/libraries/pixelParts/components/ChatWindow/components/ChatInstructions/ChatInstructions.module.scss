@@ -1,0 +1,44 @@
+@use '../../../../styles/base' as *;
+
+.chatInstructions {
+    margin-top: 20px;
+    text-align: left;
+    text-align: left;
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--listItemSpacing);
+    max-width:var(--maxWidth);
+
+    & > li {
+        display: flex;
+        gap: 16px;
+        align-items: var(--bulletNumberAlignment);
+    }
+
+    & > li:not(.noStepIndicator)::before {
+        background-color: $mwe-green;
+        border-radius: 50%;
+        color: $white;
+        content: attr(data-step);
+        display: block;
+        min-width: var(--bulletSize);
+        height: var(--bulletSize);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 1;
+    }
+
+    .instruction {
+        margin-top: 8px;
+    }
+
+    .instructionWithTitle {
+        margin-top: 0;
+    }
+}

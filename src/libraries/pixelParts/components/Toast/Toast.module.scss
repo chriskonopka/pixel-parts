@@ -1,0 +1,58 @@
+@use '../../styles/base' as *;
+
+.toast {
+    background-color: $white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.20);
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    gap: 12px;
+    border-radius: 10px;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    pointer-events: none;
+    position: fixed;
+    padding: 20px 40px;
+    z-index: 100;
+    min-width: 200px;
+    max-width: 400px;
+
+    &.justifyCenter {
+         justify-content: center;
+    }
+
+    &.justifyLeft {
+         justify-content: flex-start;
+    }
+
+    &.justifyRight {
+         justify-content: flex-end;
+    }
+
+    &.isVisible {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    [data-icon-name] {
+        font-size: 24px;
+        font-weight: 600;
+        color: var(--toastIconColor);
+    }
+
+    &.topLeft {
+        top: 30px;
+        left: 30px;
+    }
+
+    &.topCenter {
+        top: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    &.topRight {
+        top: 30px;
+        right: 30px;
+    }
+}

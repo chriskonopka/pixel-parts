@@ -1,0 +1,57 @@
+@use '../../../../styles/base' as *;
+
+.container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+}
+
+.text {
+    color: $black;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.popup {
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 0;
+    background-color: $white;
+    border: 1px solid $gray-3;
+    border-radius: 4px;
+    padding: 5px 10px;
+    color: $black;
+    font-size: 14px;
+    line-height: 20px;
+    z-index: 15;
+    display: flex;
+    text-align: left;
+    opacity: 0;
+    pointer-events: none;
+    width: 400px;
+
+    &.isOpen {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    @media (max-width: 481px) {
+        width: 350px;
+    }
+}
+
+.infoIcon {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;    
+    display: flex;
+
+    &:hover {
+        & + .popup {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    }
+}

@@ -1,0 +1,132 @@
+import { Meta } from '@storybook/blocks';
+import { Source } from '@storybook/blocks';
+
+<Meta title="Utilities/Helpers/Chat" />
+
+# Chat Helper Functions
+
+Helper functions for the McDermott Chat experience.
+
+## `getConversationHistory`
+
+Builds a **conversation summary string** and a **FileList** from records stored in your client-side IndexedDB database. It expects each record to include a user's question, the assistant's response, and any uploaded files. 
+
+### Parameters
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>db</strong></td>
+      <td>Database client with a <code>getAll(storeName)</code> method that resolves to an array of records.</td>
+      <td>Yes</td>
+      <td><code>&lcub; getAll (storeName: string) =&gt; Promise&lt;any[]&gt; &rcub;</code></td>
+    </tr>
+    <tr>
+      <td><strong>storeName</strong></td>
+      <td>Name of the object store (or equivalent) to read conversation items from.</td>
+      <td>Yes</td>
+      <td><code>string</code></td>
+    </tr>
+  </tbody>
+</table>
+
+### Returns
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>files</strong></td>
+      <td>A combined <code>FileList</code> from all records’ <code>files</code> arrays, or <code>null</code> if there are no files.</td>
+      <td><code>FileList | null</code></td>
+    </tr>
+    <tr>
+      <td><strong>conversation</strong></td>
+      <td>Markdown string containing a formatted history block with <code>User:</code> and <code>Assistant:</code> lines, or <code>undefined</code> if there’s no history.</td>
+      <td><code>string | undefined</code></td>
+    </tr>
+  </tbody>
+</table>
+
+### Usage
+
+<Source 
+  code={`
+    import * as React from 'react';
+    import { WebPartContext } from '@microsoft/sp-webpart-base'; 
+    import IndexedDBClient, { setDbConfig } from '@mwe-apps/pixel-parts/lib/services';
+    import { getConversationHistory } from '@mwe-apps/pixel-parts/lib/helpers';
+
+    export interface ConversationHistory {
+        files: FileList;
+        conversation: string;
+    }
+
+    export interface MyComponent {
+      context: WebPartContext
+    }
+
+    const MyComponent = (props: MyComponent): React.ReactElement => {
+      const [conversationHistory, setConversationHistory] = React.useState<ConversationHistory | undefined>();
+
+      const params = new URLSearchParams(window.location.search);
+      const resourceId = params.get('resourceId');
+
+      const getConversationHistoryFromStorage = async (): Promise<ConversationHistory> => {
+        try {
+            const { dbName, storeName } = setDbConfig(context, resourceId);
+            const db = new IndexedDBClient(dbName);
+            const history = await getConversationHistory(db, storeName);
+
+            setConversationHistory(history);
+        } catch (err) {
+            console.error('Could not get conversation history', err);
+            // handle error...
+        }
+      };
+
+      React.useEffect(() => {
+        getConversationHistoryFromStorage();
+      }, []);
+
+      return (
+        <>...</>
+      );
+    };
+  `} 
+  language="ts" 
+  dark 
+  format
+/>
+
+### Output: `conversation`
+
+<Source 
+  code={`
+    ### CONVERSATION_HISTORY
+    **Below is the conversational (Chat) history. Take this into account before you answer the next question.**
+    <<HISTORY_START>>
+    User: <question_1>
+    Assistant: <response_1>,
+    User: <question_2>
+    Assistant: <response_2>
+    <<HISTORY_END>>
+  `} 
+  language="txt" 
+  dark 
+  format
+/>

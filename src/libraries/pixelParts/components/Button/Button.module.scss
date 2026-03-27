@@ -1,0 +1,198 @@
+@use '../../styles/base' as *;
+
+.button {
+  padding: 9px 20px;
+  border: 1px solid;
+  border-radius: 4px;
+  font-size: 16px;
+  font-family: $MweFontSegoe;
+  line-height: 20px;
+  cursor: pointer;
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+
+  &.isLarge {
+    padding: 20px 40px;
+  }
+
+  img {
+    display: block;
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  &.alert {
+    background: $alert;
+    color: $white;
+
+    &:hover {
+      background-color: darken($alert, 7%);
+    }
+  }
+
+  &.alertOutline {
+    border: 1px solid $alert;
+    background: transparent;
+    color: $alert;
+
+    &:hover {
+      background-color: $alert;
+      color: $white;
+    }
+  }
+
+  &.white {
+    background-color: $white;
+    color: $black;
+    border-color: $gray-2;
+
+    &:hover,
+    &:active,
+    &.isActive,
+    &.isActive:hover {
+      border-color: $mwe-green;
+      background-color: $button-hover-dark;
+    }
+  }
+
+  &.lightGray {
+    background-color: $card-background-light;
+    color: $black;
+    border-color: $gray-2;
+
+    &:hover,
+    &:active,
+    &.isActive {
+      background-color: $button-hover-dark;
+      border-color: $mwe-green;
+    }
+  }
+
+  &.transparent {
+    background: transparent;
+    border-color: transparent;
+    color: inherit;
+    font-size: inherit;
+
+    &:hover,
+    &:active,
+    &.isActive {
+      border-color: $mwe-green;
+      background-color: $button-hover-dark;
+    }
+  }
+
+  &.link {
+    background: transparent;
+    border-color: transparent;
+    color: inherit;
+    font-size: inherit;
+    padding: 0;
+    color: $mwe-green;
+
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: underline;
+    }
+  }
+
+  &.green {
+    color: $white;
+    background-color: $mwe-green;
+    border-color: $mwe-green-hover;
+
+    &:hover {
+      background-color: $mwe-green-hover;
+    }
+  }
+
+  &.darkMuted {
+    opacity: 1;
+    border-color: $black;
+    background-color: $card-background-dark;
+    color: $white;
+  }
+
+  &.dark {
+    opacity: 1;
+    border-color: $mwe-green-hover;
+    background-color: $card-background-dark;
+    color: $white;
+  }
+
+  &.navy {
+    background-color: $mws-navy;
+    border-color: $mws-navy;
+    color: $white;
+
+    &:hover {
+      background-color: $mws-teal;
+      border-color: $mws-teal;
+      color: $mws-navy;
+    }
+
+    &.disabled:hover {
+      background-color: $mws-navy;
+      border-color: $mws-navy;
+      color: $white;
+    }
+  }
+
+  &.tabNavy {
+    background: transparent;
+    border: none;
+    color: $mws-navy;
+    padding: 6px 14px; /* optional tab sizing */
+    border-radius: 0;
+    font-weight: 500;
+
+    /* Remove default border behavior */
+    &:hover,
+    &:active {
+      background: transparent;
+    }
+
+    /* Default: no underline */
+    text-decoration: none;
+
+    /* Hover state */
+    &:hover {
+      color: $mws-blue;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      text-decoration-thickness: 2px;
+    }
+
+    /* Active state (using existing isActive prop) */
+    &.isActive {
+      color: $mws-navy;
+      text-decoration: underline;
+      text-decoration-color: $mws-teal;
+      text-underline-offset: 4px;
+      text-decoration-thickness: 2px;
+    }
+
+    /* If active AND hovered → blue wins */
+    &.isActive:hover {
+      color: $mws-blue;
+      text-decoration-color: $mws-blue;
+    }
+
+    /* Focus state */
+    &:focus-visible {
+      outline: 2px solid $mws-blue;
+      outline-offset: 2px;
+    }
+  }
+}
+
+.fullWidth {
+  width: 100%;
+}

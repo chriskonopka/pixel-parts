@@ -1,0 +1,35 @@
+@use '../../../../styles/base' as *;
+
+.promptConfigButton {
+  background: transparent;
+  border-color: transparent;
+  color: var(--defaultButtonTextColor);
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 600;
+  gap: 6px;
+  opacity: 0.4;
+  padding: 0 10px;
+  height: 32px;
+  line-height: 0;
+  cursor: pointer;
+
+  &.isActive {
+    color: var(--activeButtonTextColor);
+  }
+
+  &:hover:not(:disabled),
+  &:active:not(:disabled),
+  &.isActive:not(:disabled) {
+    opacity: 1;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+.promptConfigIcon {
+  width: 16px;
+}

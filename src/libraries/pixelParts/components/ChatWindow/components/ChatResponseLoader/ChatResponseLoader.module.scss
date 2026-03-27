@@ -1,0 +1,45 @@
+@use '../../../../styles/base' as *;
+
+.loader {
+    display: flex;
+    margin-left: 5px;
+    align-items: center;
+    gap: 12px;
+}
+
+.loadingBeacon {
+    background-color: $mwe-green;
+    border-radius: 50%;
+    height: 18px;
+    width: 18px;
+    animation: fadeInOut 1.5s infinite;
+}
+
+.ellipses::after {
+  content: "...";               
+  display: inline-block;
+  width: 1.5ch;              
+  text-align: left;
+  animation: ellipses 1.6s steps(4, end) infinite;
+}
+
+@keyframes ellipses {
+  0%   { content: ""; }
+  25%  { content: "."; }
+  50%  { content: ".."; }
+  75%  { content: "..."; }
+  100% { content: ""; }
+}
+
+@keyframes fadeInOut {
+    0%,
+    100% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

@@ -1,0 +1,85 @@
+@use '../../styles/base' as *;
+
+$trackBg: #cfcfcf;
+
+.root {
+  --width: 49px;
+  --height: 26px;
+  --padding: 3px;
+
+  position: relative;
+  display: inline-block;
+  width: var(--width);
+  height: var(--height);
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+}
+
+.root:focus-visible > .track {
+  box-shadow: 0 0 0 2px rgba(0,0,0,.12), 0 0 0 4px rgba(0,166,142,.35);
+}
+
+.label {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.track {
+  position: absolute;
+  inset: 0;
+  background-color: $trackBg;
+  border-radius: var(--height);
+  transition: background-color 160ms ease;
+  width: var(--width);
+}
+
+.thumb {
+  position: absolute;
+  top: var(--padding);
+  left: var(--padding);
+  width: calc(var(--height) - var(--padding) * 2);
+  height: calc(var(--height) - var(--padding) * 2);
+  background-color: $white;
+  border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(0,0,0,.12), 0 1px 1px rgba(0,0,0,.08);
+  transition: transform 160ms ease;
+}
+
+.checked .track {
+  background-color: $blue;
+}
+
+.checked .thumb {
+  transform: translateX(calc(var(--width) - var(--height)));
+}
+
+.sm,
+.md,
+.lg {
+  --width: calc(var(--height) * 1.9);
+}
+
+.sm {
+  --height: 20px;
+  --padding: 2px;
+}
+
+.md {
+  --height: 26px;
+  --padding: 3px;
+}
+
+.lg {
+  --height: 32px;
+  --padding: 4px;
+}

@@ -1,0 +1,160 @@
+@use '../../styles/base' as *;
+
+.card {
+    background-color: $white;
+    border: 1px solid $card-border-light;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    font-size: 16px;
+    font-family: $MweFontSegoe;
+    text-decoration: none;
+    
+    &.isFullWidth {
+        width: 100%;
+    }
+
+    &.isFullHeight {
+        height: 100%;
+    }
+
+    &__icon {
+        margin-right: 10px;
+    }
+
+    &__title {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 22px;
+        margin: 0 0 8px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__content,
+    &__footer,
+    &__body {
+        font-size: 15px;
+        line-height: 20px;
+        width: 100%;
+    }
+
+    &__body:not(.isCustom) {
+        display: flex;
+        flex-shrink: 0;
+    }
+    
+    &__hero {
+        display: flex;
+        justify-content: center;
+        min-height: 200px;
+        font-size: 32px;
+        font-weight: 600;
+        padding-top: 20px;
+        box-sizing: border-box;
+        border-radius: 6px 6px 0 0;
+        position: relative;
+        background-position: 0 50%;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        .card__title {
+            align-items: flex-start;
+            position: relative;
+            z-index: 2;
+        }
+
+        &::before {
+            border-radius: 6px 6px 0 0;
+            content: '';
+            display: block;
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, #000000bf 0%,#00000000 100%);
+        }
+    }
+
+    &__footer {
+        flex-grow: 1;
+    }
+
+    &__secondaryFooter {
+        margin-top: auto;
+    }
+
+    &.isClickable,
+    &__body.isClickable {
+        background-color: $white;
+        border-color: transparent;
+        cursor: pointer;
+        font-size: inherit;
+        font-family: inherit;
+        padding: 12px;
+        text-align: left;
+    }
+
+    &.isClickable {
+        border: 1px solid $card-border-light;
+        padding: 0;
+    }
+
+    &__body.isClickable {
+        border: none;
+
+        &:hover {
+            box-shadow: inset 0 0 0 1px $mwe-green;
+            border-radius: 6px 6px 0 0;
+            background-color: $button-hover-dark !important;
+        }
+    }
+
+    &.isClickable {
+        &:hover {
+            background-color: $gray-1;
+        }
+
+        &.isLink:hover {
+            background-color: $button-hover-dark !important;
+            border-color: $mwe-green;
+        }
+    }
+
+    &.isGray {
+        background-color: $gray-1 !important;
+        border-color: $card-border-light;
+    }
+
+    &.isDark {
+        background-color: $card-background-dark !important;
+        border-color: $card-border-dark;
+        box-shadow: 0 0 9px #0003;
+        color: $white !important;
+
+        .card__body {
+            color: $white;
+        }
+        
+        .card__body.isClickable {
+            background-color: transparent;
+            color: $white;
+        }
+
+        .card__footer {
+            background-color: #3a3a3a;
+        }
+    }
+
+    &.isBorderless {
+        border: none;
+    }
+
+    &.hasShadow {
+        box-shadow: 0 0 8px #0000001a;
+    }
+
+    &.hasLightShadow {
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15) !important;
+    }
+}

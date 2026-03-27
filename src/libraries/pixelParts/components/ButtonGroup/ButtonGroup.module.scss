@@ -1,0 +1,87 @@
+@use '../../styles/base' as *;
+
+.buttonGroup {
+    position: relative;
+    display: inline-flex;
+    border-radius: 6px;
+    overflow: hidden;
+    height: 40px;
+    border: var(--borderWidth) solid var(--borderColor);
+
+    &.disabled {
+        filter: grayscale(100%);
+        opacity: 0.5;
+    }
+
+    .button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        position: relative;
+        padding: 10px 20px;
+        background: transparent;
+        border: none;
+        font-size: var(--buttonFontSize);
+        font-weight: 600;
+        line-height: 1;
+        cursor: pointer;
+        z-index: 1;
+        color: var(--inactiveTextColor);
+        transition: all 0.3s ease;
+
+        & > [data-icon-name] {
+            color: var(--iconColor);
+        }
+        
+        &:hover:not(.active):not(:disabled) {
+            background-color: var(--hoverBackgroundColor);
+        }
+
+        &:disabled {
+            cursor: not-allowed;
+        }
+
+        &.active {
+            color: var(--activeTextColor);
+        }
+
+        &.muted {
+            [data-icon-name] {
+                filter: grayscale(100%);
+            }
+
+            img {
+                filter: grayscale(100%);
+            }
+
+            &.active {
+                [data-icon-name] {
+                    filter: grayscale(0%);
+                }
+
+                img {
+                    filter: grayscale(0%);
+                }
+            }
+        }
+    }
+
+    .background {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        transition: transform 0.3s ease, width 0.3s ease;
+        z-index: 0;
+        height: 40px;
+    }
+
+    &.isFullWidth {
+        width: 100%;
+        display: flex;
+
+        .button {
+            flex: 1;
+        }
+    }
+}

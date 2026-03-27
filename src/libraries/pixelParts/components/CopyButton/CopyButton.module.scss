@@ -1,0 +1,23 @@
+@use '../../styles/base' as *;
+
+.copyButton {
+    background-color: transparent;
+    border: none;
+    color: $black;
+    cursor: pointer;
+    display: inline-flex;
+    font-size: var(--fontSize);
+    align-items: center;
+    gap: 4px;
+    line-height: 1;
+    padding: 4px 0;
+
+    [data-icon-name] {
+        color: inherit;
+        font-size: 18px;
+    }
+
+    &:hover {
+        color: $mwe-green;
+    }
+}

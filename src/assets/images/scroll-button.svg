@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="62px" height="62px" viewBox="0 0 62 62" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group</title>
+    <defs>
+        <circle id="path-1" cx="25" cy="25" r="25"></circle>
+        <filter x="-18.0%" y="-18.0%" width="136.0%" height="136.0%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.137292395 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(6, 6)">
+            <g id="Oval">
+                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                <circle stroke="#E7E7E7" stroke-width="1" stroke-linejoin="square" fill="#FFFFFF" fill-rule="evenodd" cx="25" cy="25" r="24.5"></circle>
+            </g>
+            <path d="M25.8682635,31.398 L34.6407186,22.8326667 C35.1197605,22.334 35.1197605,21.5713333 34.6407186,21.102 C34.1616766,20.6326667 33.3532934,20.6326667 32.8742515,21.102 L25,28.8166667 L17.1257485,21.102 C16.6167665,20.6326667 15.8383234,20.6326667 15.3592814,21.102 C14.8802395,21.5713333 14.8802395,22.334 15.3592814,22.8326667 L24.1017964,31.398 C24.6107784,31.8673333 25.3892216,31.8673333 25.8682635,31.398 Z" id="Path" fill="#00A68E"></path>
+        </g>
+    </g>
+</svg>

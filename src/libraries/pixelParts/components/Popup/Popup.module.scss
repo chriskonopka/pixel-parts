@@ -1,0 +1,46 @@
+@use '../../../pixelParts/styles/base' as *;
+
+.popupContainer {
+    position: var(--position, relative);
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.popup {
+    border-radius: 6px;
+    box-shadow: 0 0 8px #0000001a;
+    background-color: $white;
+    overflow: hidden;
+    width: var(--width, 400px);
+    position: absolute;
+    inset: var(--inset, auto auto 100% auto);
+    margin-bottom: 8px;
+    z-index: 10;
+}
+
+.popupHeader {
+    background-color: $blue;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.popupBody {
+    max-height: 325px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    @include custom-scrollbar();
+}
+
+.popupTitle {
+    color: $white;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.popupIcon {
+    & > img {
+        display: block;
+    }
+}

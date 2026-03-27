@@ -1,0 +1,67 @@
+@use '../../styles/base' as *;
+
+.feedBackForm {
+  margin-top: 10px;
+
+  &__inputType {
+    margin-bottom: 16px;
+
+    // ensure label + dropdown sit on one line
+    display: flex;
+    align-items: center;
+
+    // space between label and dropdown
+    > * + * {
+      margin-left: 8px;
+    }
+  }
+
+  &__textarea {
+    width: 100%;
+    height: 100px;
+    resize: none;
+    padding: 8px 12px;
+    margin-bottom: 16px;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+  }
+
+  &__label {
+    display: block;
+  }
+
+  &__radioButton {
+    margin-bottom: 10px;
+  }
+
+  &__radioButtonDescription {
+    margin: 5px 0 0 28px;
+  }
+
+  &__input {
+    margin-right: 8px;
+  }
+
+  &__error {
+    font-size: 13px;
+    font-weight: 600;
+    color: $alert;
+  }
+
+  &__confirmation {
+    padding: 20px 30px;
+
+    [data-icon-name] {
+      color: $mwe-green;
+      font-size: 50px;
+    }
+
+    &.hasError {
+      [data-icon-name] {
+        color: $alert;
+      }
+    }
+  }
+}

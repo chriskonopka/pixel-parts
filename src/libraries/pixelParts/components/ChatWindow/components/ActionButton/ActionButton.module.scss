@@ -1,0 +1,45 @@
+@use '../../../../styles/base' as *;
+
+.actionButton {
+    padding: 6px 12px;
+    position: relative;
+    min-height: 38px;
+
+    img {
+        width: 20px;
+    }
+
+    &.isDark {
+        &:hover {
+            background-color: $card-background-dark;
+            border-color: transparent;
+        }
+
+        img {
+            filter: invert(1);
+        }
+    }
+
+    @media (min-width: 768px) {
+        &[data-tooltip]:hover::after {
+            content: attr(data-tooltip);
+            display: inline-block;
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            border: 1px solid $gray-3;
+            background-color: $white;
+            font-family: $MweFontSegoe;
+            font-size: 14px;
+            color: $black;
+            padding: 5px 10px;
+            border-radius: 4px;
+            width: max-content;
+            z-index: 2;
+        }
+    }
+}
+
+.actionButtonIcon {
+    display: block;
+}

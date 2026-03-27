@@ -1,0 +1,35 @@
+@use '../../styles/base' as *;
+
+.accessWarning {
+  margin-bottom: 40px;
+  border: 1px solid $alert; // red outline
+  border-radius: 6px;
+  padding: 10px;
+  line-height: 20px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  font-size: 14;
+}
+
+.accessWarning .ms-Icon {
+  color: $alert;
+  font-size: 14px;
+}
+
+.alertIcon {
+  color: $alert;
+}
+
+.requestAccess {
+  text-decoration: underline;
+  cursor: pointer;
+  color: black;
+}
+
+.requestAccess:hover {
+  text-decoration: underline;
+  color: $mwe-green-hover;
+}

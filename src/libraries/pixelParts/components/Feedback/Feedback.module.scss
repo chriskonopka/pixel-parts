@@ -1,0 +1,23 @@
+@use '../../styles/base' as *;
+
+.feeback {
+    display: flex;
+    gap: var(--button-spacing);
+}
+
+.button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    line-height: 0;
+
+    &:disabled {
+        cursor: not-allowed;
+    }
+
+    &:hover,
+    &.active {
+        color: $mwe-green;
+    }
+}

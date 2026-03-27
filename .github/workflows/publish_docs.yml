@@ -1,0 +1,63 @@
+name: Publish Storybook Docs
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/**/*.stories.ts'
+      - 'src/**/*.stories.tsx'
+      - 'docs/**/*'
+      - '**/*.mdx'
+
+jobs:
+
+  build:
+    name: Build Docs
+    runs-on: ubuntu-latest
+      
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{secrets.PAT}}
+        
+      - name: Set Up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          registry-url: https://npm.pkg.github.com/
+
+      - name: Install Library Dependencies
+        run: npm install
+
+      - name: Install Docs Dependencies
+        run: npm install
+        working-directory: ./docs
+
+      - name: Build Docs
+        run: npm run build-storybook
+        working-directory: ./docs
+
+      - name: Upload Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          name: github-pages
+          path: ${{ github.workspace }}/docs/storybook-static
+
+  deploy:
+    name: Publish Docs
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write 
+    
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

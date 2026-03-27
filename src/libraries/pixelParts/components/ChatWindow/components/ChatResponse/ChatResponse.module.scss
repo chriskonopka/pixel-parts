@@ -1,0 +1,206 @@
+@use '../../../../styles/base' as *;
+
+.questionContainer {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.questionContainerText {
+    background-color: $accessible-components-white-smoke;
+    border: 1px solid $gray-button-hover;
+    border-radius: 6px;
+    font-size: 15px;
+    color: $black;
+    padding: 10px 20px;
+    max-width: 70%;
+}
+
+.answerContainer {
+    display: flex;
+    align-items: flex-start;
+
+    & > * + * {
+        margin-left: 20px;
+    }
+}
+
+.answerContainerText {
+    color: $black;
+    padding-top: 5px;
+    font-size: 15px;
+    word-break: break-word;
+    width: 100%;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        line-height: 1.1;
+        
+        &:not(:first-of-type) {
+            margin-top: 20px;
+        }
+    }
+
+    a {
+        color: $mwe-green !important;
+        font-weight: 600;
+    }
+
+    p:first-of-type {
+        margin: 0;
+    }
+
+    p:not(:first-of-type) {
+        margin: 16px 0 0;
+    }
+
+    hr {
+        margin: 30px 0;
+    }
+
+    strong {
+        font-weight: normal;
+    }
+    
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 5px 0;
+ 
+        th,
+        td {
+            border: 1px solid $card-border-light;
+            padding: 10px;
+            text-align: left;
+            word-break: normal;
+        }
+ 
+        th {
+            background-color: $accessible-components-white-smoke;
+            font-weight: 600;
+        }
+    }
+    
+    & > :first-child {
+        margin-top: 0;
+    }
+}
+
+.files {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    justify-self: flex-end;
+    gap: 8px;
+    margin-bottom: 8px;
+    max-width: 70%;
+}
+
+.file {
+    background-color: $accessible-components-white-smoke;
+    border: 1px solid $gray-button-hover;
+    border-radius: 6px;
+    color: $black;
+    display: flex;
+    gap: 10px;
+    padding: 6px 20px;
+}
+
+.fileIcon {
+    padding-top: 4px;
+}
+
+.responseFooter {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-flow: wrap;
+    margin: 10px 0 10px 25px !important;
+    padding-left: 30px;
+    width: unset !important;
+}
+
+.vectorFiles {
+    border-left: 1px solid $gray-button-hover;
+    padding-left: 10px;
+}
+
+.vectorFileName {
+    color: #949494;
+    background-color: #f7f7f7;
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 14px;
+    display: inline-block;
+}
+
+.systemMessage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background-color: $gray-button-hover;
+        transform: translateY(-50%);
+    }
+}
+
+.systemMessageText {
+    background-color: $white;
+    padding: 0 20px;
+    text-align: center;
+    position: relative;
+}
+
+.clickableVectorStoreFileName {
+    background-color: #f7f7f7;
+    border: none;
+    color: $black;
+    cursor: pointer;
+    display: inline-flex;
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 14px;
+    align-items: center;
+
+    &:hover {
+        color: $mwe-green;
+    }
+}
+
+.feedbackPanel {
+    margin: 5px 0 35px;
+    width: 100%;
+}
+
+.feedbackConfirmationContainer {
+    width: 100%;
+}
+
+.citation {
+    background-color: $button-hover-dark;
+    color: $mwe-green;
+    display: inline-block;
+    padding: 0 5px;
+    font-weight: 600;
+    text-decoration: none;
+    position: relative;
+
+    &:focus,
+    &:active {
+        background-color: $mwe-green !important;
+        color: $white !important;
+    }
+}

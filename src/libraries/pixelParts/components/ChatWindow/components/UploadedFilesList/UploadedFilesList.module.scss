@@ -1,0 +1,52 @@
+@use '../../../../styles/base' as *;
+
+.filesList {
+    & > * + * {
+        border-top: 1px solid darken($gray-1, 1%);
+    }
+
+    .text {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+
+    .file {
+        color: $charcoal;
+        font-size: 16px;
+        padding: 12px 10px 12px 20px;
+
+        [data-icon-name] {
+            font-size: 20px;
+        }
+
+        button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+
+            &:disabled {
+                opacity: 0.5;
+                cursor: not-allowed;
+            }
+        }
+
+        &:hover {
+            background-color: $gray-1;
+        }
+    }
+
+    .fileName {
+        font-weight: 600;
+        font-size: 14px;
+        color: $black;
+    }
+
+    .noFiles {
+        padding: 32px 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        opacity: 0.5;
+    }
+}

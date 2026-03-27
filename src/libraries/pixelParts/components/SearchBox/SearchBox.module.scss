@@ -1,0 +1,279 @@
+@use '../../styles/base' as *;
+
+.searchBoxContainer {
+  &.isDark {
+    border: 1px solid transparent;
+    background-color: $card-background-dark;
+    border-radius: 5px;
+    padding: 0 8px;
+
+    &.isFocused {
+      box-shadow: 0 0 0 1px $focusBlue;
+    }
+
+    .searchBox {
+      color: $white;
+
+      &::placeholder {
+        color: $white;
+      }
+    }
+
+    .clearButton {
+      background: #999;
+    }
+  }
+
+  &:not(.isDark) {
+    background-color: $white;
+    border: 1px solid $card-border-light;
+    border-radius: 6px;
+
+    .searchBoxContainerInner {
+      border-radius: 5px;
+    }
+
+    &.isFocused {
+      .searchBoxContainerInner {
+        box-shadow: 0 0 0 1px $mwe-green;
+      }
+    }
+  }
+
+  &.hasShadow {
+    border: 0;
+    box-shadow: 0 5px 7px -2px #0000001a;
+    border: 1px solid $gray-button-hover;
+
+    &.isFocused {
+      box-shadow: 0 5px 7px -2px #0000001a;
+    }
+  }
+}
+
+.searchBoxContainerInner {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+
+  &.isMain {
+    padding: 5px 8px;
+  }
+
+  [data-icon-name] {
+    font-family: 'FabricMDL2Icons';
+    font-size: 22px;
+  }
+}
+
+.searchBox {
+  max-height: 15vh;
+  font-size: 16px;
+  background: transparent;
+  resize: none;
+  border: 0;
+  padding: 10px 12px;
+  @include custom-scrollbar();
+
+  &::placeholder {
+    color: $card-background-dark;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+
+  &.isDisabled {
+    &::placeholder {
+      color: $accessible-components-dark-grey;
+    }
+  }
+}
+
+.clearButton {
+  background: darken($card-background-light, 5%);
+  border-radius: 50%;
+  color: $white;
+  width: 16px;
+  height: 16px;
+  margin-top: 10px;
+
+  [data-icon-name] {
+    color: $card-background-dark;
+    font-size: 8px;
+  }
+}
+
+.searchButton {
+  margin: 3px 0 0 10px;
+
+  [data-icon-name] {
+    color: $white;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  [data-icon-name="StopSolid"] {
+    font-size: 12px;
+  }
+}
+
+.fileList {
+  padding: 12px 10px 0;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+
+  & > * + * {
+    margin-left: 8px;
+  }
+
+  & > * {
+    margin-bottom: 8px;
+  }
+}
+
+.fileUploadInput {
+  margin: 8px 4px 0 0;
+}
+
+.searchIcon {
+  margin-top: 8px;
+}
+
+.errorMessage {
+  font-size: 13px;
+  color: $alert;
+  margin-top: 3px;
+}
+
+.fileAttachments {
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+  position: relative;
+
+  & > :last-child {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .searchButton {
+    margin: 0;
+  }
+
+  @media (min-width: 768px) {
+    gap: 10px;
+  }
+}
+
+
+.attachmentChip { 
+  max-width: 220px; 
+  display: inline-flex; 
+  align-items: center; 
+  gap: 8px; 
+  padding: 6px 8px; 
+  border: 1px solid $card-border-light; 
+  border-radius: 10px; 
+  background: $card-background-light; 
+  position: relative; 
+}
+.chipIcon { 
+  position: relative; 
+  flex: 0 0 auto; 
+  width: 36px; 
+  height: 36px; 
+  border-radius: 8px; 
+  border: 1px solid $card-border-light; 
+  display: flex; align-items: center; 
+  justify-content: center; 
+  overflow: hidden; 
+  background: darken($card-background-light, 2%); 
+  background-size: cover; 
+  background-position: center; 
+}
+.chipLabel { 
+  min-width: 0; 
+  flex: 1 1 auto; 
+  font-size: 12px; 
+  color: $card-background-dark; 
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+}
+.chipRemove { 
+  flex: 0 0 auto;
+  background: transparent; 
+  border: 0; 
+  width: 18px; 
+  height: 18px; 
+  border-radius: 50%; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  cursor: pointer; 
+  color: $black; 
+}
+.docBadge { 
+  font-size: 11px; 
+  font-weight: 700; 
+  color: $card-background-dark; 
+}
+.iconOverlay { 
+  position: absolute; 
+  inset: 0; 
+  background: rgba(255,255,255,.65); 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+}
+.iconSpinner { 
+  width: 14px; 
+  height: 14px; 
+  border: 2px solid $gray-button-hover; 
+  border-top-color: $mwe-green; 
+  border-radius: 50%; 
+  animation: spin 1s linear infinite; 
+}
+.iconPct { 
+  position: absolute; 
+  bottom: -12px; left: 50%; 
+  transform: translateX(-50%); 
+  font-size: 10px; 
+  color: $accessible-components-dark-grey; 
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+
+.previewAndInput { 
+  flex: 1; 
+  display: flex; 
+  flex-direction: column; 
+  width: 100%; 
+}
+
+.previewContainer {
+  position: relative;
+  height: 72px;
+}
+
+.preview { 
+  position: absolute;
+  display: flex; 
+  align-items: center; 
+  gap: 8px; 
+  flex-wrap: nowrap; 
+  width: 100%; 
+  overflow-x: auto; 
+  @include custom-scrollbar();
+
+  & > * {
+    flex-shrink: 0;
+  }
+}

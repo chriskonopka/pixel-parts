@@ -1,0 +1,175 @@
+import { Meta } from '@storybook/addon-docs';
+import { Source } from '@storybook/blocks';
+
+<Meta title="Utilities/Services/CacheClient" />
+
+# Cache Client
+
+A lightweight, **IndexedDB cache client** that provides an easy asynchronous API for storing, retrieving, and managing cached data in the browser.
+
+## Quick Start
+
+<Source 
+  code={`import { cacheClient } from '@mwe-apps/pixel-parts/lib/services'`} 
+  language="ts" 
+  dark 
+  format
+/>
+
+### `setItem<T>(key, value, expiry)`
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>&lt;T&gt;</strong></td>
+      <td>Defines the shape of the value being saved.</td>
+      <td>Optional</td>
+      <td>Generic type</td>
+    </tr>
+    <tr>
+      <td><strong>key</strong></td>
+      <td>Unique key associated with item.</td>
+      <td>Required</td>
+      <td>String</td>
+    </tr>
+    <tr>
+      <td><strong>value</strong></td>
+      <td>Value being saved.</td>
+      <td>Required</td>
+      <td>Any</td>
+    </tr>
+    <tr>
+      <td><strong>expiry</strong></td>
+      <td>Item expiration.</td>
+      <td>Optional</td>
+      <td>Number (in milliseconds)</td>
+    </tr>
+  </tbody>
+</table>
+
+<Source 
+  code={`
+    interface User {
+      id: number;
+      name: string;
+    }
+
+    const userData = { id: 42, name: 'John Doe' };
+    const expiry = 15 * 60 * 1000; // 15 minutes
+    await cacheClient.setItem<User>('user', userData, expiry);
+  `} 
+  language="ts" 
+  dark 
+  format
+/>
+
+### `getItem<T>(key)`
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>&lt;T&gt;</strong></td>
+      <td>Defines the shape of the return value.</td>
+      <td>Optional</td>
+      <td>Generic type</td>
+    </tr>
+    <tr>
+      <td><strong>key</strong></td>
+      <td>Unique key associated with item.</td>
+      <td>Required</td>
+      <td>String</td>
+    </tr>
+  </tbody>
+</table>
+
+<Source 
+  code={`
+    interface User {
+      id: number;
+      name: string;
+    }
+
+    const profile = await cacheClient.getItem<User>('user');
+  `} 
+  language="ts" 
+  dark 
+  format
+/>
+
+### `deleteItem(key)`
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>key</strong></td>
+      <td>Unique key associated with item.</td>
+      <td>Required</td>
+      <td>String</td>
+    </tr>
+  </tbody>
+</table>
+
+<Source 
+  code={`await cacheClient.deleteItem('profile');`} 
+  language="ts" 
+  dark 
+  format
+/>
+
+### `deleteExpiredItems()`
+<Source 
+  code={`await cacheClient.deleteExpiredItems();`} 
+  language="ts" 
+  dark 
+  format
+/>
+
+### `deleteAllItems()`
+<Source 
+  code={`await cacheClient.deleteAllItems();`} 
+  language="ts" 
+  dark 
+  format
+/>
+
+## Site/Tenant Based Scoping
+
+All items are scoped respective to the site name. 
+
+For example, all items cached on `https://mcdermottwillemery.sharepoint.com/sites/ai` will be scoped to `site/ai`. So, saving an item with a key named `profiles` will be scopes as `site/ai/profiles` in IndexedDB.
+
+#### The benefits of scoped keys include:
+
+- **Prevents key collisions** – ensures different sites, hostnames, or tenants don’t overwrite each other’s cached data.
+- **Isolates data per site or tenant** – each site has its own logical “namespace” in the same database.
+- **Improves security and privacy** – avoids data leakage between users, sites, or environments.
+- **Enables targeted cleanup** – allows deleting all cache entries for a specific site without touching others.
+- **Simplifies expiration management** – cleanup and expiry routines can efficiently operate within one site scope.
+- **Improves debugging clarity** – scoped keys make it easy to see which site or environment data belongs to in DevTools.
+- **Supports multi-environment apps** – works seamlessly across dev, staging, and production without shared key conflicts.
+- **Future-proofs caching** – easily extends to multi-tenant, subdomain, or embedded app scenarios without refactoring.
+- **Keeps storage efficient** – avoids redundant global databases for each context by isolating within a single IndexedDB store.

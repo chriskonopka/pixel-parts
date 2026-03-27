@@ -1,0 +1,15 @@
+@use '../../styles/base' as *;
+
+.definitionList {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.definitionListItem {
+    display: flex;
+    gap: 5px;
+
+    & > div:last-child {
+        font-weight: 600;
+    }
+}

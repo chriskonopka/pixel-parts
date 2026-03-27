@@ -1,0 +1,273 @@
+@use '../../styles/base' as *;
+
+.container {
+  width: 100%;
+  overflow-x: auto;
+  margin: 0 auto;
+}
+
+.tableWrapper {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: var(--tableLayout);
+
+  &.noAlternateRows {
+    @media (min-width: 769px) {
+      tbody > tr:nth-child(even) {
+        background-color: transparent !important;
+      }
+    }
+  }
+
+  th {
+    border-bottom: 1px solid $card-border-light;
+    font-weight: 700;
+  }
+
+  th,
+  td {
+    color: $black;
+    text-align: left;
+    padding: 15px;
+    line-height: 1.3;
+    font-size: 16px;
+  }
+
+  tbody {
+    & > * {
+      border-bottom: 1px solid $card-border-light;
+    }
+  }
+
+  td {
+    a {
+      color: $charcoal;
+      font-weight: 700;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  @media (min-width: 769px) {
+    th {
+      white-space: nowrap;
+    }
+    tbody > tr:nth-child(even) {
+      background-color: $card-background-light;
+    }
+  }
+
+  @media (max-width: 768px) {
+    thead {
+      display: none;
+    }
+    tr {
+      display: block;
+      margin-bottom: 1rem;
+      border: 1px solid $card-border-light;
+      border-radius: 8px;
+      padding: 0.5rem;
+    }
+    td {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 12px;
+      border-bottom: 1px solid $gray-4;
+      position: relative;
+      text-align: right;
+
+      &:last-of-type {
+        border-bottom: 0;
+      }
+      &::before {
+        content: attr(data-label);
+        font-weight: 700;
+        text-align: left;
+        flex: 1;
+        margin-right: 1rem;
+        color: $card-background-dark;
+      }
+    }
+  }
+}
+
+.noData {
+  text-align: center;
+  color: $charcoal;
+  padding: 20px;
+}
+
+/* ——— FILTER & PAGINATION UI ——— */
+
+.filterToggle {
+  background: none;
+  border: none;
+  padding: 4px;
+  margin-left: 4px;
+  font-size: 0.9rem;
+  line-height: 1;
+  cursor: pointer;
+  color: $charcoal;
+
+  &:hover {
+    color: $mwe-green;
+  }
+}
+
+.filterInput {
+  width: 100%;
+  margin-top: 4px;
+  padding: 12px 8px;
+  border: 1px solid $card-border-light;
+  border-radius: 4px;
+  font-size: 0.9rem;
+
+   &:focus {
+    outline: 2px solid $mwe-green;
+  }
+}
+
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.pageButton {
+  background: none;
+  border: 1px solid $accessible-components-dark-grey;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  color: $charcoal;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+  &:focus {
+    outline: 2px solid $mwe-green;
+  }
+  &:hover:not(:disabled) {
+    background-color: $card-background-light;
+  }
+}
+
+.pageInfo {
+  font-size: 0.9rem;
+  color: $charcoal;
+}
+
+.pageSizeSelect {
+  margin-left: auto;
+  padding: 4px 8px;
+  font-size: 0.9rem;
+  border: 1px solid $card-border-light;
+  border-radius: 4px;
+}
+
+/* HEADER CONTROLS & SORTABLE STATES */
+
+.headerControls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+}
+
+.sortableHeader {
+  cursor: pointer;
+  &:focus {
+    outline: 2px solid $mwe-green;
+    outline-offset: 2px;
+  }
+}
+
+.headerLabel {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  cursor: inherit;
+}
+
+.sortArrow {
+  font-size: 12px;
+  color: $charcoal;
+}
+
+.sortIcon {
+  font-size: 14px;
+  color: $charcoal;
+}
+
+.filterIcon {
+  padding: 4px;
+  margin-top: 4px;
+  margin-left: 5px;
+  font-size: 8px;
+  opacity: 60%;
+  color: $charcoal;
+  cursor: pointer;
+
+  &:hover {
+    color: $mwe-green;
+  }
+  &:focus {
+    outline: 2px solid $mwe-green;
+    outline-offset: 2px;
+  }
+}
+
+.selectHeader {
+  width: 40px;
+  text-align: center;
+}
+
+.selectHeaderPlaceholder {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+}
+
+.selectCell {
+  width: 40px;
+  text-align: center;
+
+  // on mobile, keep the label short
+  @media (max-width: 768px) {
+    &::before {
+      content: 'Select';
+    }
+  }
+}
+
+.rowSelected {
+  background-color: $button-hover-dark !important;
+}
+
+.selectableRows {
+  tbody > tr {
+    cursor: pointer; /* pointer on rows */
+  }
+
+  tbody > tr:hover {
+    background-color: $button-hover-dark !important;
+  }
+}
+
+.selectHeader input[type='checkbox'],
+.selectCell  input[type='checkbox'],
+.selectCell  input[type='radio'] {
+  accent-color: $mwe-green;
+}

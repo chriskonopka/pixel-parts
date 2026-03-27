@@ -1,0 +1,39 @@
+@keyframes shimmerAnimation {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmerPanel {
+  padding: 2px;
+
+  > * {
+    margin: 12px 0;
+  }
+}
+
+.shimmerLine {
+  height: 11px;
+  width: 100%;
+  border-radius: 4px;
+  background-size: 200% 100%;
+  animation: shimmerAnimation 1.5s infinite linear;
+}
+
+.dark .shimmerLine {
+  background-image: linear-gradient(to right, #3f3f3f 0%, #292929 50%, #3f3f3f 100%);
+  background-color: #3f3f3f;
+}
+
+.gray .shimmerLine {
+  background-image: linear-gradient(to right, #e9e9e9 0%, #e4e4e4 50%, #e9e9e9 100%);
+  background-color: #e9e9e9;
+}
+
+.white .shimmerLine {
+  background-image: linear-gradient(to right, #f3f2f1 0%, #edebe9 50%, #f3f2f1 100%);
+  background-color: #f3f2f1;
+}

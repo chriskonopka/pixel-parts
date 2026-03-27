@@ -1,0 +1,62 @@
+@use '../../styles/base' as *;
+
+.pill {
+  border-radius: 4px;
+  border-width: 1px;
+  border-style: solid;
+  padding: 2px 8px;
+  font-family: $MweFontSegoe;
+  font-size: 14px;
+  line-height: 20px;
+  display: inline-block;
+  transition: background-color 0.3s, color 0.3s;
+
+  &.large {
+    font-size: 20px;
+    font-weight: 600;
+    padding: 6px 20px;
+    text-transform: uppercase;
+  }
+
+  &.clickable:hover {
+    color: $white !important;
+    cursor: pointer;
+  }
+}
+
+.blue {
+  background-color: rgba($blue, 0.2);
+  border-color: $blue;
+  &.clickable:hover {
+    background-color: rgba($blue, 1);
+  }
+}
+
+.green {
+  background-color: rgba($mwe-green, 0.2);
+  border-color: $mwe-green;
+
+  &.clickable:hover {
+    background-color: rgba($mwe-green, 1);
+  }
+}
+
+.purple {
+  background-color: rgba($violet, 0.2);
+  border-color: $violet;
+  &.clickable:hover {
+    background-color: rgba($violet, 1);
+  }
+}
+
+.orange {
+  background-color: rgba($coral, 0.2);
+  border-color: $coral;
+  &.clickable:hover {
+    background-color: rgba($coral, 1);
+  }
+}
+
+.endIcon {
+  padding-left: 10px;
+}

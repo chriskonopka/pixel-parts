@@ -1,0 +1,29 @@
+@use '../../styles/base' as *;
+
+.textWrapper {
+    display: inline-flex;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.text {
+    white-space: var(--whiteSpace);
+    overflow: hidden;
+    width: 100%;
+    max-width: var(--maxWidth);
+}
+
+.button {
+    cursor: pointer;
+    font-size: inherit;
+    white-space: nowrap;
+    background: none;
+    border: none;
+    text-decoration: underline;
+    padding: 0;
+    margin-left: 2px;
+
+    &:hover {
+        color: $mwe-green;
+    }
+}

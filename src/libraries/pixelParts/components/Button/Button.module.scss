@@ -3,9 +3,9 @@
 .button {
   padding: 9px 20px;
   border: 1px solid;
-  border-radius: 4px;
+  border-radius: 2px;
   font-size: 16px;
-  font-family: $MweFontSegoe;
+  font-family: $MwsFontArizona;
   line-height: 20px;
   cursor: pointer;
   display: inline-flex;
@@ -25,6 +25,56 @@
   &.disabled {
     cursor: not-allowed;
     opacity: 0.5;
+  }
+
+  // MWS Toolkit — Primary button (on light)
+  &.primary {
+    background-color: $mws-teal;
+    border-color: $mws-teal;
+    color: $mws-navy;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    font-weight: 400;
+    min-height: 36px;
+    padding: 9px 24px;
+
+    &:hover {
+      background-color: $mws-navy;
+      border-color: $mws-navy;
+      color: $white;
+    }
+
+    &.disabled:hover {
+      background-color: $mws-teal;
+      border-color: $mws-teal;
+      color: $mws-navy;
+    }
+  }
+
+  // MWS Toolkit — Secondary button (on light)
+  &.secondary {
+    background-color: $white;
+    border-color: $mws-stroke;
+    color: $mws-navy;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    font-weight: 400;
+    min-height: 36px;
+    padding: 9px 24px;
+
+    &:hover {
+      background-color: $mws-navy;
+      border-color: $mws-navy;
+      color: $white;
+    }
+
+    &.disabled:hover {
+      background-color: $white;
+      border-color: $mws-stroke;
+      color: $mws-navy;
+    }
   }
 
   &.alert {
@@ -49,7 +99,7 @@
 
   &.white {
     background-color: $white;
-    color: $black;
+    color: $mws-navy;
     border-color: $gray-2;
 
     &:hover,
@@ -63,7 +113,7 @@
 
   &.lightGray {
     background-color: $card-background-light;
-    color: $black;
+    color: $mws-navy;
     border-color: $gray-2;
 
     &:hover,
@@ -88,18 +138,24 @@
     }
   }
 
+  // MWS Toolkit — CTA text link (p9)
   &.link {
     background: transparent;
     border-color: transparent;
-    color: inherit;
-    font-size: inherit;
+    color: $mws-navy;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
     padding: 0;
-    color: $mwe-green;
 
     &:hover,
-    &:focus,
+    &:focus {
+      color: $mws-blue;
+    }
+
     &:active {
-      text-decoration: underline;
+      color: $mws-navy;
     }
   }
 
@@ -115,7 +171,7 @@
 
   &.darkMuted {
     opacity: 1;
-    border-color: $black;
+    border-color: $mws-navy;
     background-color: $card-background-dark;
     color: $white;
   }

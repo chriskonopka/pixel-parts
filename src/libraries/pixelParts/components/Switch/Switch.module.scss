@@ -20,7 +20,7 @@ $trackBg: #cfcfcf;
 }
 
 .root:focus-visible > .track {
-  box-shadow: 0 0 0 2px rgba(0,0,0,.12), 0 0 0 4px rgba(0,166,142,.35);
+  box-shadow: 0 0 0 2px rgba(0,0,0,.12), 0 0 0 4px rgba($mws-blue, 0.35);
 }
 
 .label {
@@ -56,7 +56,7 @@ $trackBg: #cfcfcf;
 }
 
 .checked .track {
-  background-color: $blue;
+  background-color: $mws-blue;
 }
 
 .checked .thumb {

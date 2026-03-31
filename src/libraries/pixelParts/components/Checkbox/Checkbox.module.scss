@@ -12,17 +12,17 @@
   height: 16px;
   width: 16px;
   border-radius: 4px;
-  background-color: $card-background-dark;
-  border: 1px solid $black !important;
-  accent-color: $mwe-green !important;
+  background-color: $white;
+  border: 1px solid $mws-stroke !important;
+  accent-color: $mws-teal !important;
 }
 
 .label {
-  color: $white;
+  color: $mws-navy;
   font-size: 15px;
   line-height: 20px;
 }
 
 .label:hover {
-  color: $white;
+  color: $mws-navy;
 }

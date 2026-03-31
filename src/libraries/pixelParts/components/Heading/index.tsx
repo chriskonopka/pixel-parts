@@ -41,7 +41,7 @@ const Heading = ({
   align = 'left',
   as: Tag = 'h1',
 }: HeadingProps): React.ReactElement => {
-  const color = isDark ? '#ffffff' : '#000000';
+  const color = isDark ? '#ffffff' : '#000042';
   const borderColor = bottomBorderColor || color;
 
   return (

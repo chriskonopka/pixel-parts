@@ -12,7 +12,9 @@
   "types": "lib/index.d.ts",
   "files": [
     "lib",
-    "lib/scss"
+    "lib/scss",
+    "COMPONENTS.md",
+    "CLAUDE.md"
   ],
   "sass": "lib/scss/index.scss",
   "scripts": {

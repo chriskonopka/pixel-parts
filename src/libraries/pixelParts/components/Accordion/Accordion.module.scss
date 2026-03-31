@@ -2,7 +2,7 @@
 
 .accordion {
     & > * + *::before {
-        background-color: $mwe-green;
+        background-color: $mws-navy;
         content: '';
         display: block;
         height: 80px;
@@ -11,8 +11,8 @@
     }
 }
 
-.navy {
+.legacy {
   & > * + *::before {
-    background-color: $mws-navy;
+    background-color: $mwe-green;
   }
 }

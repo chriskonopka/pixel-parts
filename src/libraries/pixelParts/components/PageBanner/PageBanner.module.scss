@@ -12,18 +12,22 @@
 
     &__breadcrumbs {
         font-size: 13px;
-        color: $card-border-dark;
+        color: $mws-navy;
         padding: 0 30px;
 
         &>*+*::before {
             content: '/';
-            color: $card-border-dark;
+            color: $mws-navy;
             display: inline-block;
             padding: 0 8px;
         }
 
         a {
-            color: $card-border-dark;
+            color: $mws-navy;
+
+            &:hover {
+                color: $mws-blue;
+            }
         }
     }
 

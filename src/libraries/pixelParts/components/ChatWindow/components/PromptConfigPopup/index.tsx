@@ -68,7 +68,7 @@ export interface PromptConfigPopupProps extends Pick<PopupProps, 'inset' | 'widt
 const PromptConfigPopup = ({
   ref,
   buttonText,
-  buttonTextColors = [colors.black, colors.blue],
+  buttonTextColors = [colors.mwsNavy, colors.mwsBlue],
   popupTitle,
   buttonIcon,
   popupIcon,

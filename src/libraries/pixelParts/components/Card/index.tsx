@@ -67,7 +67,7 @@ const Card = (props: CardProps): React.ReactElement => {
     const {
         backgroundColor,
         classNames,
-        fontColor = '#000000',
+        fontColor = '#000042',
         heroBackgroundImage,
         heroBorderColor,
         children,

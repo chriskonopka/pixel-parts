@@ -30,7 +30,7 @@
 
   th,
   td {
-    color: $black;
+    color: $mws-navy;
     text-align: left;
     padding: 15px;
     line-height: 1.3;
@@ -45,7 +45,7 @@
 
   td {
     a {
-      color: $charcoal;
+      color: $mws-navy;
       font-weight: 700;
       text-decoration: none;
 
@@ -100,7 +100,7 @@
 
 .noData {
   text-align: center;
-  color: $charcoal;
+  color: $mws-navy;
   padding: 20px;
 }
 
@@ -114,7 +114,7 @@
   font-size: 0.9rem;
   line-height: 1;
   cursor: pointer;
-  color: $charcoal;
+  color: $mws-navy;
 
   &:hover {
     color: $mwe-green;
@@ -149,7 +149,7 @@
   padding: 4px 8px;
   font-size: 0.9rem;
   cursor: pointer;
-  color: $charcoal;
+  color: $mws-navy;
 
   &:disabled {
     opacity: 0.5;
@@ -165,7 +165,7 @@
 
 .pageInfo {
   font-size: 0.9rem;
-  color: $charcoal;
+  color: $mws-navy;
 }
 
 .pageSizeSelect {
@@ -203,12 +203,12 @@
 
 .sortArrow {
   font-size: 12px;
-  color: $charcoal;
+  color: $mws-navy;
 }
 
 .sortIcon {
   font-size: 14px;
-  color: $charcoal;
+  color: $mws-navy;
 }
 
 .filterIcon {
@@ -217,7 +217,7 @@
   margin-left: 5px;
   font-size: 8px;
   opacity: 60%;
-  color: $charcoal;
+  color: $mws-navy;
   cursor: pointer;
 
   &:hover {

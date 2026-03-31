@@ -1,4 +1,6 @@
-// Fonts
+// Fonts — Arizona Sans is the primary typeface per MWS UI Toolkit v1.1 (p6)
+$MwsFontArizona: "Arizona Sans", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif;
+// Legacy font stack kept for backward compat
 $MweFontSegoe: "Segoe UI", "Segoe UI Web (West European)", "Segoe UI",
   -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
 
@@ -52,7 +54,20 @@ $mws-pale-magenta: #FFEDFF;
 $mws-pale-orange: #FFE2DE;
 $mws-pale-gold: #F9E9D2;
 
-//alerts
+// MWS Utility Backgrounds (for internal platform backgrounds only)
+$mws-utility-gray-1: #EBEBF2;
+$mws-utility-gray-2: #DEDEE5;
+$mws-utility-gray-3: #D2D2D9;
+
+// MWS Alert Colors
+$mws-error: #FF3333;
+$mws-success: #75D957;
+$mws-warning-color: #F1E53C;
+
+// MWS Stroke
+$mws-stroke: #D9D9D9;
+
+//alerts (legacy pale variants)
 $mws-alert-warning: #FEFCEB;
 $mws-alert-urgent: #FFEBEB;
 // MWS Brand Colors - Dark Variants

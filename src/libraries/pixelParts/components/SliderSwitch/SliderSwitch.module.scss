@@ -11,19 +11,19 @@
     align-items: center;
     height: 40px;
     background-color: $white;
-    color: $black;
+    color: $mws-navy;
     border-radius: 5px;
     cursor: pointer;
     overflow: hidden;
     transition: all 0.2s ease-in-out;
 
     &:focus-within {
-      box-shadow: 0 0 0 1px $focusBlue;
+      box-shadow: 0 0 0 1px $mws-blue;
     }
 
     &:hover {
-      border-color: $mwe-green;
-      background-color: $button-hover-dark;
+      border-color: $mws-teal;
+      background-color: rgba($mws-teal, 0.06);
     }
 
     .switchInput {
@@ -57,7 +57,7 @@
       align-items: center;
       justify-content: center;
       line-height: 1;
-      font-family: $MweFontSegoe;
+      font-family: $MwsFontArizona;
       font-weight: 600;
       font-size: 16px;
       transition: max-width 0.2s ease-in-out;
@@ -71,11 +71,11 @@
     }
 
     &.isChecked {
-      background-color: $mwe-green;
-      color: $white;
+      background-color: $mws-teal;
+      color: $mws-navy;
 
       .switchButton {
-        background-color: $mwe-green-light;
+        background-color: rgba($white, 0.3);
       }
 
       .switchIcon {
@@ -102,9 +102,9 @@
   .accessibilityLabelPopup {
     border: 1px solid $gray-3;
     background-color: $white;
-    font-family: $MweFontSegoe;
+    font-family: $MwsFontArizona;
     font-size: 14px;
-    color: $black;
+    color: $mws-navy;
     padding: 5px 10px;
     border-radius: 4px;
     z-index: 3;

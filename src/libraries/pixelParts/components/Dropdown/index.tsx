@@ -127,9 +127,9 @@ const Dropdown: React.FC<DropdownProps> = ({
   };
 
   const selectStyle: React.CSSProperties = {
-    backgroundColor: isDark ? colors.cardBackgroundDark : colors.white,
-    color: isDark ? colors.white : colors.black,
-    border: isDark ? `1px solid ${colors.black}` : `1px solid ${colors.gray2}`,
+    backgroundColor: isDark ? colors.mwsNavy : colors.white,
+    color: isDark ? colors.white : colors.mwsNavy,
+    border: isDark ? `1px solid ${colors.mwsNavy}` : `1px solid ${colors.mwsStroke}`,
     borderRadius: isDark ? 4 : 6,
     height: isMulti ? undefined : 40,
     minWidth: isDark ? 200 : undefined,
@@ -146,7 +146,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       {label && (
         <label
           htmlFor="pixel-dropdown"
-          style={{ display: 'block', marginBottom: 4, fontSize: 15, color: colors.black }}
+          style={{ display: 'block', marginBottom: 4, fontSize: 15, color: colors.mwsNavy }}
         >
           {label}
         </label>

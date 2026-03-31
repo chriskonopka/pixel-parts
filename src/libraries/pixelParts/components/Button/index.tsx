@@ -26,7 +26,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   /**
    * The variant prop determines the style variant of the button.
    */
-  variant?: 'white' | 'lightGray' | 'green' | 'dark' | 'darkMuted' | 'transparent' | 'alert' | 'alertOutline' | 'link' | 'navy' | 'tabNavy';
+  variant?: 'primary' | 'secondary' | 'white' | 'lightGray' | 'green' | 'dark' | 'darkMuted' | 'transparent' | 'alert' | 'alertOutline' | 'link' | 'navy' | 'tabNavy';
 
   /**
    * The className prop allows for additional custom styling.
@@ -58,7 +58,7 @@ const Button = (props: ButtonProps): React.ReactElement => {
     text, 
     onClick, 
     textColor,
-    variant = 'dark', 
+    variant = 'primary',
     className = '', 
     isActive = false, 
     fullWidth = false, 

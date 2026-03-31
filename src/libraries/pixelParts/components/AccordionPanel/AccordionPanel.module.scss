@@ -1,12 +1,13 @@
 @use '../../styles/base' as *;
 
 .accordionPanel {
-  background-color: #f3f3f3;
-  border: 1px solid #d3d3d3;
+  background-color: $white;
+  border: 1px solid transparent;
   border-radius: 6px;
+  color: $mws-navy;
 
   &:hover {
-    border-color: $mwe-green;
+    border-color: $mws-teal;
   }
 
   &__header {
@@ -35,9 +36,9 @@
   }
 
   &__label {
-    border: 1px solid $gray-3;
-    background-color: $card-background-light;
-    color: $black;
+    border: 2px solid $mws-navy;
+    background-color: $white;
+    color: $mws-navy;
     border-radius: 20px;
     justify-content: center;
     align-items: center;
@@ -49,8 +50,9 @@
   }
 
   &__toggle {
-    background-color: #d4d4d4;
-    color: #fff;
+    background-color: transparent;
+    border: 2px solid $mws-navy;
+    color: $mws-navy;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -83,57 +85,27 @@
 }
 
 /* =====================================================
-   NAVY VARIANT (Rebrand)
+   LEGACY VARIANT (pre-rebrand gray style)
    ===================================================== */
 
-.navy {
-  background-color: $white;
-  border: 1px solid transparent;
+.legacy {
+  background-color: #f3f3f3;
+  border: 1px solid #d3d3d3;
   color: $mws-navy;
 
-  .accordionPanel__trigger {
-    color: $mws-navy;
-
-    &:hover {
-      border-color: transparent;
-      color: $mws-blue;
-    }
-
-    &:focus-visible {
-      outline: 2px solid $mws-blue;
-      outline-offset: 2px;
-      border-radius: 6px;
-    }
-  }
-
-  .accordionPanel__title,
-  .accordionPanel__subtitle,
-  .accordionPanel__body {
-    color: $mws-navy;
+  &:hover {
+    border-color: $mwe-green;
   }
 
   .accordionPanel__label {
-    border: 2px solid $mws-navy;
-    background-color: $white;
+    border: 1px solid $gray-3;
+    background-color: $card-background-light;
     color: $mws-navy;
   }
 
-  /* Chevron circle (outlined, not filled) */
   .accordionPanel__toggle {
-    background-color: transparent;
-    border: 2px solid $mws-navy;
-    color: $mws-navy;
-
-    transition: border-color 0.2s ease, color 0.2s ease;
-
-    &:hover {
-      border-color: $mws-blue;
-      color: $mws-blue;
-    }
-
-    /* Ensure Fabric icon inherits color */
-    :global(i) {
-      color: inherit;
-    }
+    background-color: #d4d4d4;
+    border: none;
+    color: #fff;
   }
 }

@@ -8,7 +8,7 @@
     padding: 0 8px;
 
     &.isFocused {
-      box-shadow: 0 0 0 1px $focusBlue;
+      box-shadow: 0 0 0 1px $mws-blue;
     }
 
     .searchBox {
@@ -26,7 +26,7 @@
 
   &:not(.isDark) {
     background-color: $white;
-    border: 1px solid $card-border-light;
+    border: 1px solid $mws-stroke;
     border-radius: 6px;
 
     .searchBoxContainerInner {
@@ -35,7 +35,7 @@
 
     &.isFocused {
       .searchBoxContainerInner {
-        box-shadow: 0 0 0 1px $mwe-green;
+        box-shadow: 0 0 0 1px $mws-teal;
       }
     }
   }
@@ -218,7 +218,7 @@
   align-items: center; 
   justify-content: center; 
   cursor: pointer; 
-  color: $black; 
+  color: $mws-navy;
 }
 .docBadge { 
   font-size: 11px; 
@@ -237,7 +237,7 @@
   width: 14px; 
   height: 14px; 
   border: 2px solid $gray-button-hover; 
-  border-top-color: $mwe-green; 
+  border-top-color: $mws-teal; 
   border-radius: 50%; 
   animation: spin 1s linear infinite; 
 }

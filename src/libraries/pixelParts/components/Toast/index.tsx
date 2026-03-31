@@ -81,7 +81,7 @@ const Toast = (props: ToastProps):React.ReactElement => {
         className, 
         duration,
         icon, 
-        iconColor = '#000',
+        iconColor = '#000042',
         position = 'top-right',
         alignContent = 'left',
     } = props;

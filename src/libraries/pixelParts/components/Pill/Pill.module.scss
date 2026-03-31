@@ -5,7 +5,7 @@
   border-width: 1px;
   border-style: solid;
   padding: 2px 8px;
-  font-family: $MweFontSegoe;
+  font-family: $MwsFontArizona;
   font-size: 14px;
   line-height: 20px;
   display: inline-block;
@@ -24,36 +24,39 @@
   }
 }
 
+// MWS brand palette (p2)
 .blue {
-  background-color: rgba($blue, 0.2);
-  border-color: $blue;
+  background-color: rgba($mws-blue, 0.12);
+  border-color: $mws-blue;
   &.clickable:hover {
-    background-color: rgba($blue, 1);
+    background-color: $mws-blue;
   }
 }
 
 .green {
-  background-color: rgba($mwe-green, 0.2);
-  border-color: $mwe-green;
+  background-color: rgba($mws-teal, 0.12);
+  border-color: $mws-teal;
 
   &.clickable:hover {
-    background-color: rgba($mwe-green, 1);
+    background-color: $mws-teal;
+    color: $mws-navy !important;
   }
 }
 
 .purple {
-  background-color: rgba($violet, 0.2);
-  border-color: $violet;
+  background-color: rgba($mws-magenta, 0.12);
+  border-color: $mws-magenta;
   &.clickable:hover {
-    background-color: rgba($violet, 1);
+    background-color: $mws-magenta;
+    color: $mws-navy !important;
   }
 }
 
 .orange {
-  background-color: rgba($coral, 0.2);
-  border-color: $coral;
+  background-color: rgba($mws-orange, 0.12);
+  border-color: $mws-orange;
   &.clickable:hover {
-    background-color: rgba($coral, 1);
+    background-color: $mws-orange;
   }
 }
 

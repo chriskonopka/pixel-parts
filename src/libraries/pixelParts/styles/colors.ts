@@ -70,9 +70,19 @@ export const colors = {
   mwsNavyGrey4: '#69696d',
   mwsNavyGrey4Alt: '#29296b',
 
+  // Alert colors (per MWS UI Toolkit v1.1)
   mwsBrightRed: '#ff3333',
   mwsBrightGreen: '#75d957',
   mwsBrightYellow: '#f1e53c',
+
+  // Utility backgrounds (internal platforms only)
+  mwsUtilityGray1: '#ebebf2',
+  mwsUtilityGray2: '#dedee5',
+  mwsUtilityGray3: '#d2d2d9',
+
+  // Stroke
+  mwsStroke: '#d9d9d9',
+
   mwsBlue75: '#4052f5',
   mwsBlue40: '#99a3fa',
 }

@@ -127,7 +127,7 @@ const buttonGroupStyles = {
     borderColor: colors.cardBorderLight,
     buttonColor: colors.mweGreen,
     activeTextColor: colors.white,
-    inactiveTextColor: colors.black,
+    inactiveTextColor: colors.mwsNavy,
     hoverBackgroundColor: colors.buttonHoverDark
   }, 
   dark: {

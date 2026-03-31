@@ -3,7 +3,7 @@ name: Publish Storybook Docs
 on:
   push:
     branches:
-      - main
+      - major-uplift
     paths:
       - 'src/**/*.stories.ts'
       - 'src/**/*.stories.tsx'
@@ -15,13 +15,13 @@ jobs:
   build:
     name: Build Docs
     runs-on: ubuntu-latest
-      
+
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
         with:
           token: ${{secrets.PAT}}
-        
+
       - name: Set Up Node.js
         uses: actions/setup-node@v4
         with:
@@ -30,6 +30,8 @@ jobs:
 
       - name: Install Library Dependencies
         run: npm install
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.PAT}}
 
       - name: Install Docs Dependencies
         run: npm install

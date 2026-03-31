@@ -20,19 +20,14 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
-        with:
-          token: ${{secrets.PAT}}
 
       - name: Set Up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 24
-          registry-url: https://npm.pkg.github.com/
 
       - name: Install Library Dependencies
         run: npm install
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.PAT}}
 
       - name: Install Docs Dependencies
         run: npm install
@@ -46,7 +41,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           name: github-pages
-          path: ${{ github.workspace }}/docs/storybook-static
+          path: ./docs/storybook-static
 
   deploy:
     name: Publish Docs
@@ -54,8 +49,8 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       pages: write
-      id-token: write 
-    
+      id-token: write
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
